@@ -17,13 +17,15 @@ class CreateMealsTable extends Migration
 
             $table->id();
 
-            $table->string('name');
+            $table->string('name_ar');
+            $table->string('name_he');
 
             $table->string('slug')->unique();
 
             $table->string('price');
 
-            $table->string('description');
+            $table->string('description_ar');
+            $table->string('description_he');
 
             $table->unsignedBigInteger('section_id');
 

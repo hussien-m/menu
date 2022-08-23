@@ -16,12 +16,13 @@ class CreateSectionsTable extends Migration
         Schema::create('sections', function (Blueprint $table) {
             $table->id();
 
-            $table->string('name');
+            $table->string('name_ar');
+            $table->string('name_he');
 
             $table->string('slug')->unique();
 
             $table->string('image')->nullable();
-            
+
             $table->timestamps();
         });
     }

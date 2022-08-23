@@ -6,6 +6,10 @@
 
             <li class="{{ Request::is('admin/dashboard') ? 'open' : '' }} nav-item"><a href="#"><i class="la la-home"></i><span class="menu-title" data-i18n="nav.dash.main">الرئيسية</span></a>
             </li>
+
+            <li class="{{ Request::is('admin/dashboard') ? 'open' : '' }} nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title" data-i18n="nav.dash.main">@lang('dashboard.sections')</span></a>
+            </li>
+
             <li class="navigation-header">
                 <span style="color:#0D7091" data-i18n="nav.category.layouts"> قوائم اخرى</span><i class="la la-ellipsis-h ft-minus" data-toggle="tooltip" data-placement="right" data-original-title="Layouts"></i>
             </li>
