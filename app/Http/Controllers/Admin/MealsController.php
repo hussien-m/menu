@@ -13,7 +13,7 @@ class MealsController extends Controller
 {
     public function index()
     {
-        $data['page_name'] = __('dashboard.sec-name');
+        $data['page_name'] = __('dashboard.meal-name');
         $data['createRoute'] = route('meals.create');
         $data['meals']  = Meal::get();
 

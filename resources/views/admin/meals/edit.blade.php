@@ -49,7 +49,7 @@
                 @enderror
             </div>
             <div class="form-group">
-                <label for="name">@lang('dashboard.sec-description_ar')</label>
+                <label for="name">@lang('dashboard.meal-description_ar')</label>
                 <textarea type="text" class="form-control @error('description_ar') is-invalid @enderror" name="description_ar"
                     >{{ old('description_ar') ?? $meal->description_ar }}</textarea>
                 @error('description_ar')
@@ -58,7 +58,7 @@
             </div>
 
             <div class="form-group">
-                <label for="name">@lang('dashboard.sec-description_he')</label>
+                <label for="name">@lang('dashboard.meal-description_he')</label>
                 <textarea type="text" class="form-control @error('name_he') is-invalid @enderror" name="description_he"
                     >{{ old('description_he') ?? $meal->description_he }}</textarea>
                 @error('description_he')
@@ -67,7 +67,7 @@
             </div>
 
             <div class="form-group">
-                <label for="name">@lang('dashboard.sec-slug')</label>
+                <label for="name">@lang('dashboard.meal-slug')</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" name="slug"
                     id="name" value="{{ old('slug') ?? $meal->slug }}">
                 @error('slug')

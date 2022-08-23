@@ -34,10 +34,10 @@
             <tfoot>
                 <tr>
                     <th>#ID</th>
-                    <th>@lang('dashboard.sec-name')</th>
-                    <th>@lang('dashboard.sec-image')</th>
-                    <th>@lang('dashboard.sec-slug')</th>
-                    <th>@lang('dashboard.sec-created_at')</th>
+                    <th>@lang('dashboard.meal-name')</th>
+                    <th>@lang('dashboard.meal-slug')</th>
+                    <th>@lang('dashboard.meal-price')</th>
+                    <th>@lang('dashboard.meal-created_at')</th>
                   </tr>
             </tfoot>
           </table>

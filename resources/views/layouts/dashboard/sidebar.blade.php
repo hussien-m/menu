@@ -4,7 +4,7 @@
 
 
 
-            <li class="{{ Request::is('admin/dashboard') ? 'open' : '' }} nav-item"><a href="#"><i class="la la-home"></i><span class="menu-title" data-i18n="nav.dash.main">الرئيسية</span></a>
+            <li class="{{ Request::is('admin/dashboard') ? 'open' : '' }} nav-item"><a href="#"><i class="la la-home"></i><span class="menu-title" data-i18n="nav.dash.main"> @lang('dashboard.home') </span></a>
             </li>
 
             <li class="{{ Request::is('admin/sections') ? 'open' : '' }} nav-item"><a href="{{ route('sections.index') }}"><i class="la la-television"></i><span class="menu-title" data-i18n="nav.dash.main">@lang('dashboard.sections')</span></a>
@@ -16,10 +16,10 @@
             </li>
 
 
-            <li class="{{ Request::is('admin/settings') ? 'active':''}} nav-item"><a href="{{route('admin.settings')}}"><i class="la la-gear"></i><span class="menu-title" data-i18n="nav.dash.main">الاعدادات</span></a>
+            <li class="{{ Request::is('admin/settings') ? 'active':''}} nav-item"><a href="{{route('admin.settings')}}"><i class="la la-gear"></i><span class="menu-title" data-i18n="nav.dash.main">@lang('dashboard.settings')</span></a></
             </li>
 
-            <li class="nav-item"><a href="#" class="clearCache"><i class="la la-remove"></i><span class="menu-title" data-i18n="nav.dash.main">مسح الكاش</span></a>
+            <li class="nav-item"><a href="#" class="clearCache"><i class="la la-remove"></i><span class="menu-title" data-i18n="nav.dash.main">@lang('dashboard.clear-cache')</span></a>
             </li>
 
         </ul>

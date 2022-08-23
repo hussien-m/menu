@@ -24,6 +24,7 @@ return[
 	'meal-description_ar' => 'الوصف بالعربية',
 	'meal-description_he' => 'الوصف بالعبرية',
 	'add_new_meals' => 'أضف جديد',
+	'home' => '',
 	'settings' => 'الاعدادات',
 	'clear-cache' => 'مسح الكاش',
 	'' => '',

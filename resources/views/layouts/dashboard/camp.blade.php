@@ -5,7 +5,7 @@
             <div class="breadcrumb-wrapper col-12">
                 <ol class="breadcrumb">
                     @if(!Request::is('admin'))
-                    <li class="breadcrumb-item"><a href="#">الرئيسية</a>
+                    <li class="breadcrumb-item"><a href="#">@lang('dashboard.home')</a>
                     </li>
                     @endif
                     @if(@$old_page !=null)
@@ -24,7 +24,7 @@
     @if($createRoute != url()->current())
         <div class="content-header-right col-md-6 col-12">
             <div class="dropdown float-md-right">
-                <a href="{{$createRoute}}" class="btn btn-primary  round btn-glow px-2" type="button">أضف جديد</a>
+                <a href="{{$createRoute}}" class="btn btn-primary  round btn-glow px-2" type="button">@lang('dashboard.new_add')</a>
             </div>
         </div>
     @endif
