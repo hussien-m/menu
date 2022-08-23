@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Request;
 
 class AdminController extends Controller
 {
@@ -20,6 +20,7 @@ class AdminController extends Controller
     public function index()
     {
         $data['page_name'] = "الرئيسية";
-        return view('home',$data);
+        $data['createRoute'] = "#";
+       return view('home',$data);
     }
 }

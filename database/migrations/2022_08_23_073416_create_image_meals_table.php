@@ -16,7 +16,7 @@ class CreateImageMealsTable extends Migration
         Schema::create('image_meals', function (Blueprint $table) {
 
             $table->id();
-
+            $table->string('image');
             $table->unsignedBigInteger('meal_id');
 
             $table->foreign('meal_id')
@@ -24,7 +24,7 @@ class CreateImageMealsTable extends Migration
                   ->references('id')
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
-                  
+
             $table->timestamps();
         });
     }

@@ -7,7 +7,8 @@
             <li class="{{ Request::is('admin/dashboard') ? 'open' : '' }} nav-item"><a href="#"><i class="la la-home"></i><span class="menu-title" data-i18n="nav.dash.main">الرئيسية</span></a>
             </li>
 
-            <li class="{{ Request::is('admin/dashboard') ? 'open' : '' }} nav-item"><a href="#"><i class="la la-television"></i><span class="menu-title" data-i18n="nav.dash.main">@lang('dashboard.sections')</span></a>
+            <li class="{{ Request::is('admin/sections') ? 'open' : '' }} nav-item"><a href="{{ route('sections.index') }}"><i class="la la-television"></i><span class="menu-title" data-i18n="nav.dash.main">@lang('dashboard.sections')</span></a>
+            <li class="{{ Request::is('admin/meals') ? 'open' : '' }} nav-item"><a href="{{ route('meals.index') }}"><i class="la la-navicon"></i><span class="menu-title" data-i18n="nav.dash.main">@lang('dashboard.meals')</span></a>
             </li>
 
             <li class="navigation-header">

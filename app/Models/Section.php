@@ -14,4 +14,7 @@ class Section extends Model
     {
         return $this->hasMany(Meal::class,'section_id');
     }
+
+    
+
 }

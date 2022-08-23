@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminController;
+use App\Http\Controllers\Admin\MealsController;
+use App\Http\Controllers\Admin\SectionController;
 use App\Http\Controllers\Admin\SettingController;
 use Illuminate\Support\Facades\Route;
 
@@ -26,8 +28,15 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
         Route::get('settings', [SettingController::class, 'index'])->name('settings');
         Route::post('settings',[SettingController::class,'store'])->name('settings.save');
         Route::get('clear-cache',[SettingController::class,'clearCache'])->name('clear.cache');
+        //Route::get('sections',[SectionController::class,'index'])->name('sections.index');
+
+
 
     });
+
+    Route::resource('admin/sections', SectionController::class);
+    Route::resource('admin/meals', MealsController::class);
+
 
 });
 

@@ -21,13 +21,13 @@
     </div>
 
 
-        @if(@$createRoute != url()->current())
-            <div class="content-header-right col-md-6 col-12">
-                <div class="dropdown float-md-right">
-                    <a href="{{$createRoute ?? "#"}}" class="btn btn-primary  round btn-glow px-2" type="button">أضف جديد</a>
-                </div>
+    @if($createRoute != url()->current())
+        <div class="content-header-right col-md-6 col-12">
+            <div class="dropdown float-md-right">
+                <a href="{{$createRoute}}" class="btn btn-primary  round btn-glow px-2" type="button">أضف جديد</a>
             </div>
-        @endif
+        </div>
+    @endif
 
 
 
