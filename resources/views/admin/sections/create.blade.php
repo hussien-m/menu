@@ -32,7 +32,7 @@
             <div class="form-group">
                 <label for="name">@lang('dashboard.sec-slug')</label>
                 <input type="text" class="form-control @error('name') is-invalid @enderror" name="slug"
-                    id="name" value="{{ old('name') }}">
+                    id="slug" value="{{ old('slug') }}">
                 @error('slug')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
