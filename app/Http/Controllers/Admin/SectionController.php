@@ -36,8 +36,8 @@ class SectionController extends Controller
     {
         $request->validate([
 
-            'name_ar' => 'required|max:255',
-            'name_hr' => 'required|max:255',
+            'name_ar' => 'required',
+            'name_hr' => 'required',
             'image'             => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'slug'             =>'required',
 
