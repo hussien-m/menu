@@ -37,21 +37,6 @@ class MealsController extends Controller
     public function store(Request $request)
     {
         $request->except('_token','_method');
-
-       $data = $request->validate([
-
-            'name_ar'        => 'required|max:255',
-            'name_hr'           => 'required|max:255',
-            'description_ar' => 'required|max:255',
-            'description_hr' => 'required|max:255',
-            'price' => 'required',
-            'section_id' => 'required|int|exists:sections,id',
-            'image'   => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'slug'             =>'required',
-
-        ]);
-
-dd($data);
         //dd($request->all());
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image');
@@ -101,19 +86,6 @@ dd($data);
 
     public function update(Request $request, $id)
     {
-
-        $request->validate([
-
-            'name_ar'        => 'required|max:255',
-            'name_hr'           => 'required|max:255',
-            'description_ar' => 'required|max:255',
-            'description_hr' => 'required|max:255',
-            'price' => 'required',
-            'slug'             =>'required',
-            'section_id' => 'required|int|exists:sections,id',
-            'image'   => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-
-        ]);
 
         $meal= Meal::findOrFail($id);
         $image = public_path('images'.DIRECTORY_SEPARATOR.'meals'.DIRECTORY_SEPARATOR.$meal->image);
