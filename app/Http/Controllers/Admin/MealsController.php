@@ -38,7 +38,7 @@ class MealsController extends Controller
     {
         $request->except('_token','_method');
 
-        $request->validate([
+       $data = $request->validate([
 
             'name_ar'        => 'required|max:255',
             'name_hr'           => 'required|max:255',
@@ -50,6 +50,8 @@ class MealsController extends Controller
             'slug'             =>'required',
 
         ]);
+
+dd($data);
         //dd($request->all());
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image');
