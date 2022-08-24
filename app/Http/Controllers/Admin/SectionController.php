@@ -34,16 +34,9 @@ class SectionController extends Controller
 
     public function store(Request $request)
     {
-        $request->validate([
 
-            'name_ar' => 'required',
-            'name_hr' => 'required',
-            'image'             => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-            'slug'             =>'required',
 
-        ]);
 
-       
 
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image');
@@ -87,14 +80,7 @@ class SectionController extends Controller
 
     public function update(Request $request, $id)
     {
-        $request->validate([
 
-            'name_ar' => 'required|max:255',
-            'name_hr' => 'required|max:255',
-            'slug'             =>'required',
-            'image'   => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
-
-        ]);
         $section= Section::findOrFail($id);
         $image = public_path('images'.DIRECTORY_SEPARATOR.'sections'.DIRECTORY_SEPARATOR.$section->image);
 
