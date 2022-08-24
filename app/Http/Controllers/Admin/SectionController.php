@@ -43,7 +43,7 @@ class SectionController extends Controller
 
         ]);
 
-        $request->except('_token','_method');
+       
 
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image');
