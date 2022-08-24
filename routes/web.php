@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminController;
 use App\Http\Controllers\Admin\MealsController;
 use App\Http\Controllers\Admin\SectionController;
 use App\Http\Controllers\Admin\SettingController;
+use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,9 +19,9 @@ use Illuminate\Support\Facades\Route;
 */
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect',  'localizationRedirect', 'localeViewPath']], function () {
 
-    Route::get('/', function () {
-        return view('welcome');
-    });
+    Route::get('/', [FrontendController::class, 'index']);
+    Route::get('show/section/{slug}', [FrontendController::class,'showSection'])->name('show.section');
+    Route::get('show/meal/{slug}', [FrontendController::class,'showMeal'])->name('show.meal');
 
     Route::name('admin.')->namespace('Admin')->prefix('admin')->group(function(){
 
@@ -37,11 +38,14 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
     Route::resource('admin/sections', SectionController::class);
     Route::resource('admin/meals', MealsController::class);
 
+    Auth::routes([
+        'register' => false, // Registration Routes...
+        'reset' => false, // Password Reset Routes...
+        'verify' => false, // Email Verification Routes...
+      ]);
 
 });
 
-Auth::routes([
-    'register' => false, // Registration Routes...
-    'reset' => false, // Password Reset Routes...
-    'verify' => false, // Email Verification Routes...
-  ]);
+
+
+

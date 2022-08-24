@@ -11,12 +11,16 @@ use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
 class MealsController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
     public function index()
     {
         $data['page_name'] = __('dashboard.meal-name');
         $data['createRoute'] = route('meals.create');
         $data['meals']  = Meal::get();
-
+       // dd($data['meals']);
         return view('admin.meals.index', $data);
     }
 
@@ -34,36 +38,24 @@ class MealsController extends Controller
     {
         $request->except('_token','_method');
 
-
-
-        if ($request->hasfile('files')) {
-
+        //dd($request->all());
+        if ($request->hasFile('image')) {
+            $imagePath = $request->file('image');
+            $imageName = time() . '-' . $request->user_name . '.' . $request->file("image")->extension();
+            $path = $request->file('image')
+                ->move(public_path("images".DIRECTORY_SEPARATOR."meals"), $imageName);
+            $request->image = $imageName;
             $meal= Meal::create([
                 'name_ar' => $request->name_ar,
                 'name_he' => $request->name_he,
                 'slug' => $request->slug,
                 'section_id' => $request->section_id,
                 'price' => $request->price,
+                'image' => $imageName,
+                'extra' => $request->extra,
                 'description_ar' => $request->description_ar,
                 'description_he' => $request->description_he
             ]);
-
-            foreach ($request->file('files') as $image) {
-
-                $meal_image = new ImageMeal();
-
-                $name = $image->getClientOriginalName();
-
-                $name = Str::random(3). time() . '.' . $name;
-
-                $image->move('images/meals', $name);
-
-                $meal_image->image = $name;
-
-                $meal_image->meal_id = $meal->id;
-
-                $meal_image->save();
-            }
         }
 
 
@@ -95,9 +87,22 @@ class MealsController extends Controller
 
     public function update(Request $request, $id)
     {
-        $meal  = Meal::findOrFail($id);
-        $images = ImageMeal::where('meal_id',$meal->id)->get();
+        $meal= Meal::findOrFail($id);
+        $image = public_path('images'.DIRECTORY_SEPARATOR.'meals'.DIRECTORY_SEPARATOR.$meal->image);
+        if ($request->hasFile('image')) {
 
+            if(File::exists($image)){
+                File::delete($image);
+             }
+
+            $imagePath = $request->file('image');
+            $imageName = time() . '-' . $request->user_name . '.' . $request->file("image")->extension();
+            $path = $request->file('image')
+                ->move(public_path("images/meals"), $imageName);
+            $request->image = $imageName;
+            $meal->image=$imageName;
+
+        }
 
         $meal->name_ar = $request->name_ar;
         $meal->name_he = $request->name_he;
@@ -105,36 +110,9 @@ class MealsController extends Controller
         $meal->description_ar = $request->description_ar;
         $meal->slug = $request->slug;
         $meal->price = $request->price;
+        $meal->extra = $request->extra;
         $meal->save();
 
-        if ($request->hasfile('files')) {
-            foreach($images as $image){
-
-                if(File::exists($img=public_path('images'.DIRECTORY_SEPARATOR.'meals'.DIRECTORY_SEPARATOR.$image->image))){
-
-                   File::delete($img);
-
-                }
-
-            }
-
-            foreach ($request->file('files') as $image) {
-
-                $meal_image = new ImageMeal();
-
-                $name = $image->getClientOriginalName();
-
-                $name = Str::random(3). time() . '.' . $name;
-
-                $image->move('images/meals', $name);
-
-                $meal_image->image = $name;
-
-                $meal_image->meal_id = $meal->id;
-
-                $meal_image->save();
-            }
-        }
         toast('تمت التعديل بنجاح','success');
         return redirect()->route('meals.index');
     }
@@ -144,8 +122,8 @@ class MealsController extends Controller
     public function destroy($id)
     {
         $meal  = Meal::findOrFail($id);
-        $images = ImageMeal::where('meal_id',$meal->id)->get();
-        foreach($images as $image){
+
+        $image = ImageMeal::where('meal_id',$meal->id)->get();
 
             if(File::exists($img=public_path('images'.DIRECTORY_SEPARATOR.'meals'.DIRECTORY_SEPARATOR.$image->image))){
 
@@ -153,8 +131,6 @@ class MealsController extends Controller
 
             }
 
-        }
-
-         $meal->delete();
+        $meal->delete();
     }
 }

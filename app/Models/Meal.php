@@ -10,6 +10,9 @@ class Meal extends Model
     use HasFactory;
     protected $guarded = [];
 
+    protected $casts = [
+        'extra' => 'array'
+    ];
     public function section()
     {
         return $this->belongsTo(Section::class,'section_id');
@@ -18,5 +21,18 @@ class Meal extends Model
     public function images()
     {
         return $this->hasMany(ImageMeal::class,'meal_id');
+    }
+
+    public function setExtraAttribute($add)
+    {
+        $extra = [];
+
+        foreach ($add as $array_item) {
+            if (!is_null($array_item['price'])) {
+                $extra[] = $array_item;
+            }
+        }
+
+        $this->attributes['extra'] = json_encode($extra);
     }
 }

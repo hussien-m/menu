@@ -35,6 +35,15 @@
                         <input type="text" name="site_name" class="form-control" value="{{$settings->site_name}}">
                     </fieldset>
 
+                    <fieldset class="form-group">
+                        <label class="text-muted">اسم الموقع</label>
+                        <input type="text" name="wifi_name" class="form-control" value="{{$settings->wifi_name}}">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label class="text-muted">اسم الموقع</label>
+                        <input type="text" name="wifi_password" class="form-control" value="{{$settings->wifi_password}}">
+                    </fieldset>
+
                 </div>
             </div>
         </div>

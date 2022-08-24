@@ -13,7 +13,7 @@ class SettingController extends Controller
 {
     public function __construct()
     {
-        
+        $this->middleware('auth');
     }
     public function index()
     {
@@ -35,6 +35,8 @@ class SettingController extends Controller
             'facebook'              =>'required',
             'tiwtter'               =>'required',
             'instagram'             =>'required',
+            'wifi_password'         =>'required',
+            'wifi_name'             =>'required',
         ]);
 
         DB::table('settings')->update($settings);

@@ -77,7 +77,7 @@
 
             <div class="form-group">
                 <label for="name">@lang('dashboard.image')</label>
-                <input type="file" class="form-control @error('iamge') is-invalid @enderror"  name="files[]" accept="image/*" multiple
+                <input type="file" class="form-control @error('iamge') is-invalid @enderror"  name="image" accept="image/*"
                     id="image" value="{{ old('image') }}" onchange="readURL(this);">
                 @error('name')
                     <p class="text-danger">{{ $message }}</p>
@@ -85,7 +85,29 @@
 
             </div>
 
-
+            <div class="form-group">
+                <label for="properties">Properties</label>
+                <div class="row">
+                    <div class="col-md-2">
+                        Key:
+                    </div>
+                    <div class="col-md-4">
+                        Value:
+                    </div>
+                </div>
+                @for ($i=0; $i <= 2; $i++)
+                    <div class="row">
+                        <div class="col-md-2">
+                            <input type="text" name="extra[{{ $i }}][add]" class="form-control"
+                              value="{{ $meal->extra[$i]['add'] ?? '' }}">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="text" name="extra[{{ $i }}][price]" class="form-control"
+                              value="{{ $meal->extra[$i]['price'] ?? '' }}">
+                        </div>
+                    </div>
+                @endfor
+            </div>
             <div class="form-group mt-1">
                 <button type="submit" class="btn btn-primary">{{ $page_name }}</button>
             </div>
