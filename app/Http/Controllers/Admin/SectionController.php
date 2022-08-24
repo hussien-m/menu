@@ -34,6 +34,14 @@ class SectionController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+
+            'name_ar' => 'required|max:255',
+            'name_hr' => 'required|max:255',
+            'image'             => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+        ]);
+
         $request->except('_token','_method');
 
         if ($request->hasFile('image')) {
@@ -68,6 +76,7 @@ class SectionController extends Controller
 
     public function edit($id)
     {
+
         $data['page_name'] = __('dashboard.edit_section');
         $data['createRoute'] = route('sections.create');
         $data['section'] = Section::findOrFail($id);
@@ -77,6 +86,13 @@ class SectionController extends Controller
 
     public function update(Request $request, $id)
     {
+        $request->validate([
+
+            'name_ar' => 'required|max:255',
+            'name_hr' => 'required|max:255',
+            'image'   => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+
+        ]);
         $section= Section::findOrFail($id);
         $image = public_path('images'.DIRECTORY_SEPARATOR.'sections'.DIRECTORY_SEPARATOR.$section->image);
 
