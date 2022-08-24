@@ -39,6 +39,7 @@ class SectionController extends Controller
             'name_ar' => 'required|max:255',
             'name_hr' => 'required|max:255',
             'image'             => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'slug'             =>'required',
 
         ]);
 
@@ -90,6 +91,7 @@ class SectionController extends Controller
 
             'name_ar' => 'required|max:255',
             'name_hr' => 'required|max:255',
+            'slug'             =>'required',
             'image'   => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
         ]);

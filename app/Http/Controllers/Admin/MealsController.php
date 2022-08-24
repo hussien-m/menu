@@ -47,6 +47,7 @@ class MealsController extends Controller
             'price' => 'required',
             'section_id' => 'required|int|exists:sections,id',
             'image'   => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'slug'             =>'required',
 
         ]);
         //dd($request->all());
@@ -106,6 +107,7 @@ class MealsController extends Controller
             'description_ar' => 'required|max:255',
             'description_hr' => 'required|max:255',
             'price' => 'required',
+            'slug'             =>'required',
             'section_id' => 'required|int|exists:sections,id',
             'image'   => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
 
