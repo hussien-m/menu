@@ -34,10 +34,10 @@
           </div>
           <div class="card-content collapse show">
             <div class="card-body card-dashboard">
-              <table class="table table-striped table-bordered zero-configuration table-responsive">
+              <table class="table table-striped table-bordered zero-configuration">
                 <thead>
                   <tr>
-                    <th>#ID</th>
+
                     <th>@lang('dashboard.sec-name')</th>
                     <th>@lang('dashboard.sec-image')</th>
                     <th>@lang('dashboard.sec-slug')</th>
@@ -48,7 +48,7 @@
                 <tbody>
                     @forelse ( $sections as $key=>$section )
                         <tr id="{{$section->id}}">
-                            <td>{{$key+1 }}</td>
+
                             <td>{{  app()->getLocale() =='en' ? $section->name_ar : $section->name_he  }} </td>
                             <td>
                                 <span onclick="this.parentElement.style.display='none'" class="closebtn"></span>
@@ -75,7 +75,6 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th>#ID</th>
                         <th>@lang('dashboard.sec-name')</th>
                         <th>@lang('dashboard.sec-image')</th>
                         <th>@lang('dashboard.sec-slug')</th>
@@ -115,7 +114,7 @@ integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="ano
 <script>
    var t = $('.table').DataTable({
 
-    order:[[1000000, 'desc'], [0, 'asc']],
+
 
         "oLanguage": {
 

@@ -34,10 +34,9 @@
           </div>
           <div class="card-content collapse show">
             <div class="card-body card-dashboard">
-              <table class="table table-striped table-bordered zero-configuration table-responsive">
+              <table class="table table-striped table-bordered zero-configuration">
                 <thead>
                   <tr>
-                    <th>#ID</th>
                     <th>@lang('dashboard.meal-name')</th>
                     <th>@lang('dashboard.sections')</th>
                     <th>@lang('dashboard.meal-slug')</th>
@@ -51,7 +50,6 @@
                 <tbody>
                     @forelse ( $meals as $key=>$meal)
                         <tr id="{{$meal->id}}">
-                            <td>{{$key+1 }}</td>
                             <td>{{  app()->getLocale() =='en' ? $meal->name_ar : $meal->name_he  }} </td>
                             <td>{{app()->getLocale() =='en' ? $meal->section->name_ar : $meal->section->name_he }}</td>
                             <td>{{$meal->slug}}</td>
@@ -64,7 +62,7 @@
                             </td>
                             <td>
                                 <span onclick="this.parentElement.style.display='none'" class="closebtn"></span>
-                                <img  src="{{ asset('images/meals/'.$meal->image) }}" class="rounded" width="50" height="50" onclick="myFunction(this);" data-toggle="modal" data-target=".bd-example-modal-lg" />
+                                <img  src="{{ asset('images/meals/'.$meal->image) }}" class="rounded" width="50" height="50" onclick="myFunction(this);" data-toggle="modal" data-target=".bd-example-modal-lg"/>
 
                             </td>
 
@@ -86,7 +84,6 @@
                 </tbody>
                 <tfoot>
                     <tr>
-                        <th>#ID</th>
                         <th>@lang('dashboard.meal-name')</th>
                         <th>@lang('dashboard.sections')</th>
                         <th>@lang('dashboard.meal-slug')</th>
@@ -129,7 +126,7 @@ integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="ano
 <script>
    var t = $('.table').DataTable({
 
-    order:[[1000000, 'desc'], [0, 'asc']],
+
 
         "oLanguage": {
 
