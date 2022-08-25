@@ -3,7 +3,7 @@
 @section('content')
 <section class="menu-item-list">
     <h2 class="menu-item-list__title h2">
-       <span>{{ app()->getLocale()=="en"?$section_name[0]->name_ar:$section_name[0]->name_he }}</span>
+       <span><b>{{ app()->getLocale()=="en"?$section_name[0]->name_ar:$section_name[0]->name_he }}</b></span>
        <!---->
     </h2>
     @foreach($meals as $meal)
@@ -13,7 +13,7 @@
              <img
                 data-url="{{route("show.meal",$meal->slug) }}"
                 alt="&quot;Homemade&quot; dumplings" class="dish-image__img" src="{{ asset('images/meals/'.$meal->image) }}">
-            
+
           <div class="dish-content" style="padding-top: 10px">
              <div class="dish-body">
                 <div class="dish-header">
