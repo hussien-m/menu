@@ -99,7 +99,7 @@
                         </div>
                     </div>
 
-                    @for ($i = 0; $i <= 4; $i++)
+                    @for ($i = 0; $i <= 11; $i++)
                         <div class="row">
                             <div class="col-md-3 mt-2">
                                 <input type="text" name="extra[{{ $i }}][add]" class="form-control"
@@ -122,7 +122,7 @@
                         </div>
                     </div>
                     <hr>
-                    @for ($i=0; $i <= 4; $i++)
+                    @for ($i=0; $i <= 11; $i++)
                     <div class="row">
                         <div class="col-md-3 mt-2">
                             <input type="text" name="extra_he[{{ $i }}][add]" class="form-control" value="{{ old('extra_he['.$i.'][add]') }}" placeholder="الاضافة بالعبرية">

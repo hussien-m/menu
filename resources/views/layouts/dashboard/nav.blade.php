@@ -29,7 +29,7 @@
                 <span class="avatar avatar-online">
                   <img src="{{asset('dash-rtl/app-assets/images/portrait/small/avatar-s-19.png')}}" alt="avatar"><i></i></span>
               </a>
-              <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#"><i class="ft-user"></i> Edit Profile</a>
+              <div class="dropdown-menu dropdown-menu-right">
                 <a class="dropdown-item" href="{{ route('admin.changePassword') }}"><i class="ft-mail"></i> تغيير كلمة المرور</a>
                 <div class="dropdown-divider"></div>
                 <div class="text-center">
