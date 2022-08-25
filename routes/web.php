@@ -19,17 +19,19 @@ use Illuminate\Support\Facades\Route;
 */
 Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['localeSessionRedirect',  'localizationRedirect', 'localeViewPath']], function () {
 
-    Route::get('/', [FrontendController::class, 'index']);
+    Route::get('/', [FrontendController::class, 'index'])->name('homepage');
     Route::get('show/section/{slug}', [FrontendController::class,'showSection'])->name('show.section');
     Route::get('show/meal/{slug}', [FrontendController::class,'showMeal'])->name('show.meal');
 
     Route::name('admin.')->namespace('Admin')->prefix('admin')->group(function(){
 
         Route::get('dashboard', [AdminController::class, 'index'])->name('home');
+        Route::get('change/password', [AdminController::class, 'changePassword'])->name('changePassword');
+        Route::post('change/password/post', [AdminController::class, 'changePasswordPost'])->name('changePasswordPost');
         Route::get('settings', [SettingController::class, 'index'])->name('settings');
         Route::post('settings',[SettingController::class,'store'])->name('settings.save');
         Route::get('clear-cache',[SettingController::class,'clearCache'])->name('clear.cache');
-        //Route::get('sections',[SectionController::class,'index'])->name('sections.index');
+
 
 
 

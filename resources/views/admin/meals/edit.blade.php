@@ -18,7 +18,7 @@
                 <select class="form-control" name="section_id" required>
                     <option selected disabled>---</option>
                     @foreach ($sections as $section)
-                        <option value="{{ $section->id }}">{{  app()->getLocale() =='ar' ? $section->name_ar : $section->name_he  }}</option>
+                        <option value="{{ $section->id }}">{{  app()->getLocale() =='en' ? $section->name_ar : $section->name_he  }}</option>
                     @endforeach
                 </select>
             </div>
@@ -86,24 +86,48 @@
             </div>
 
             <div class="form-group">
-                <label for="properties">Properties</label>
+                <label for="properties">بالعربية الاضافات</label>
                 <div class="row">
                     <div class="col-md-2">
-                        Key:
+                        الاضافة:
                     </div>
                     <div class="col-md-4">
-                        Value:
+                        السعر:
                     </div>
                 </div>
-                @for ($i=0; $i <= 2; $i++)
+                @for ($i=0; $i <= count($meal->extra_he); $i++)
                     <div class="row">
                         <div class="col-md-2">
                             <input type="text" name="extra[{{ $i }}][add]" class="form-control"
                               value="{{ $meal->extra[$i]['add'] ?? '' }}">
                         </div>
                         <div class="col-md-4">
-                            <input type="text" name="extra[{{ $i }}][price]" class="form-control"
+                            <input type="number" name="extra[{{ $i }}][price]" class="form-control"
                               value="{{ $meal->extra[$i]['price'] ?? '' }}">
+                        </div>
+                    </div>
+                @endfor
+            </div>
+            <hr>
+            <div class="form-group">
+                <label for="properties"> باللعبرية الاضافات</label>
+                <div class="row">
+                    <div class="col-md-2">
+                        الاضافة:
+                    </div>
+                    <div class="col-md-4">
+                        السعر:
+                    </div>
+                </div>
+                @for ($i=0; $i <= count($meal->extra_he) ; $i++)
+                    <div class="row">
+                        <div class="col-md-2">
+                            <input type="text" name="extra_he[{{ $i }}][add]" class="form-control"
+                              value="{{ $meal->extra_he[$i]['add'] ?? '' }}">
+                        </div>
+                        <div class="col-md-4">
+                            <input type="number" name="extra_he[{{ $i }}][price]" class="form-control"
+                              value="{{ $meal->extra_he[$i]['price'] ?? '' }}">
                         </div>
                     </div>
                 @endfor

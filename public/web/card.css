@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Tajawal:wght@300&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Tajawal', sans-serif;
+    direction: rtl;
+
+}
+header{
+    position: relative;
+    height: 100vh;
+
+}
+.slider{
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+
+}
+.carousel-item img{
+    width: 100% !important;
+    height: auto;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-size: cover;
+}
+
+.titel{
+    position: absolute;
+    top: 0;bottom: 0;right: 0;left: 0;
+    margin: auto !important;
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+.titel h1{
+    color: rgb(251, 247, 32);
+    font-weight: bold;
+    font-size: 5rem;
+    letter-spacing: 10px;
+    padding: 5px;
+    background: #000;
+    border-radius: 5px;
+}
+
+.content{
+    padding: 20px 40px;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+}
+
+.card_food{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    padding: 40px 80px;
+}
+
+.card {
+    width: 100% !important;
+    margin: auto;
+}
+.titel_logo{
+    display: flex !important;
+    justify-content: center !important;
+    text-align: center !important;
+}
+
+.titel_logo h1{
+ font-size: 3rem;
+ display: flex !important;
+ justify-content: center !important;
+ text-align: center !important;
+}
+
+.adrees h3 {
+   display: flex !important;
+   justify-content: center;
+   padding: 10px 30px;
+   font-weight: 900;
+   font-size: 2rem;
+}
+
+.card-title{
+    text-align: right;
+    font-weight: bold;
+}
+
+.card-body{
+    display: flex;
+    text-align: right;
+    width: 100% !important;
+    justify-content: space-around;
+
+}
+
+
+@media screen and (max-width: 980px) {
+    header{
+        height: 50vh;
+    }
+
+    .titel h1{
+        font-size: 2rem;
+    }
+
+    .card_food{
+        flex-direction: column;
+        width: 100% !important;
+        padding: 0px;
+    }
+
+
+    .card  img {
+        border-radius: 10px;
+    }
+    .content{
+        position: absolute;
+        top: 28vh;
+        padding: 0;
+        height: auto !important;
+        width: 100% !important;
+        background-color:#fff;
+        border-radius: 30px;
+
+    }
+    .adrees h3 {
+        justify-content: flex-start;
+    }
+  }
+  .card {
+    /* padding: 22px; */
+    background: #fff;
+    background: var(--color-white);
+    /* border-radius: 22px; */
+    box-shadow: 0 0 transparent, 0 0 transparent, 0 1px 2px 0 rgb(0 0 0 / 5%);
+    box-shadow: var(--shadow-0);
+}

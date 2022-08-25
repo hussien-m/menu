@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateDealRequest;
+use App\Http\Requests\CreateMealRequest;
 use App\Models\ImageMeal;
 use App\Models\Meal;
 use App\Models\Section;
@@ -17,9 +19,9 @@ class MealsController extends Controller
     }
     public function index()
     {
-        $data['page_name'] = __('dashboard.meal-name');
+        $data['page_name'] = __('dashboard.meals');
         $data['createRoute'] = route('meals.create');
-        $data['meals']  = Meal::get();
+        $data['meals']  = Meal::latest()->get();
        // dd($data['meals']);
         return view('admin.meals.index', $data);
     }
@@ -34,10 +36,10 @@ class MealsController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(CreateMealRequest $request)
     {
-        $request->except('_token','_method');
         //dd($request->all());
+
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image');
             $imageName = time() . '-' . $request->user_name . '.' . $request->file("image")->extension();
@@ -52,12 +54,11 @@ class MealsController extends Controller
                 'price' => $request->price,
                 'image' => $imageName,
                 'extra' => $request->extra,
+                'extra_he' => $request->extra_he,
                 'description_ar' => $request->description_ar,
                 'description_he' => $request->description_he
             ]);
         }
-
-
 
         toast('تمت الاضافة بنجاح','success');
         return redirect()->route('meals.index');

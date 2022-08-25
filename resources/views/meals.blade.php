@@ -1,35 +1,45 @@
-@extends('layouts.web')
+@extends('app')
 
 @section('content')
-<div class="text-right" style="float: right;">
-    <p class="alignright">{{ $section_name[0]->name_ar }}</p>
-</div>
-    @foreach ($meals as $meal)
+<section class="menu-item-list">
+    <h2 class="menu-item-list__title h2">
+       <span>{{ app()->getLocale()=="en"?$section_name[0]->name_ar:$section_name[0]->name_he }}</span>
+       <!---->
+    </h2>
+    @foreach($meals as $meal)
+    <div class="menu-item-list__item">
+       <article class="dish">
 
-    <div class="category-list__item">
-        <div class="category-list__item">
-            <div class="category-item">
-                <a href="{{ route('show.meal', $meal->slug) }}"
-                    class="category-item__link focus"
-                    style="background-image:url({{ asset('images/meals/'.$meal->image) }});">
-
-                </a>
+             <img
+                data-url="{{route("show.meal",$meal->slug) }}"
+                alt="&quot;Homemade&quot; dumplings" class="dish-image__img" src="{{ asset('images/meals/'.$meal->image) }}">
+            
+          <div class="dish-content" style="padding-top: 10px">
+             <div class="dish-body">
+                <div class="dish-header">
+                   <h3 class="dish-title">
+                      <!---->
+                      <!----> <span> <a href="{{ route('show.meal',$meal->slug) }}">{{ app()->getLocale() == "en" ? $meal->name_ar:$meal->name_he }}</a></span>
+                   </h3>
+                   <div class="dish-weight" >
+                      <b>{{ Currency::format($meal->price,'ILS') }}</b>
+                   </div>
+                </div>
                 <!---->
-            </div>
-            <div>
-                <p class="alignright" style="margin-right: 15px;margin-top:5px">{{ app()->getLocale()=="ar" ? $meal->name_ar:$meal->name_he }}</p>
-                <p class="alignleft ml-2" style="margin-left: 15px;margin-top:5px">{{ Currency::format($meal->price,'ILS') }}</p>
-
-            </div>
-            <div>
-                <small class="alignright" style="margin-right: 15px;margin-top:8px">{{ app()->getLocale()=="ar" ? $meal->description_ar:$meal->description_he }}</small>
-            </div>
-
-
-            <!---->
-        </div>
-
-        <!---->
+                <div class="dish-description">
+                   <p>
+                     <a href="{{ route('show.meal',$meal->slug) }}">{{ app()->getLocale() == "en" ? $meal->description_ar:$meal->description_he }}</a>
+                   </p>
+                </div>
+             </div>
+          </div>
+          <div class="dish-action">
+             <!---->
+          </div>
+       </article>
+       <!---->
     </div>
     @endforeach
+    <!---->
+ </section>
 @stop

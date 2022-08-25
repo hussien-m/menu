@@ -31,7 +31,7 @@
 
             <div class="form-group">
                 <label for="name">@lang('dashboard.sec-slug')</label>
-                <input type="text" class="form-control @error('name') is-invalid @enderror" name="slug"
+                <input type="text" class="form-control @error('slug') is-invalid @enderror" name="slug"
                     id="slug" value="{{ old('slug') }}">
                 @error('slug')
                     <p class="text-danger">{{ $message }}</p>
@@ -42,7 +42,7 @@
                 <label for="name">@lang('dashboard.image')</label>
                 <input type="file" class="form-control @error('iamge') is-invalid @enderror" name="image"
                     id="image" value="{{ old('image') }}" onchange="readURL(this);">
-                @error('name')
+                @error('image')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
 

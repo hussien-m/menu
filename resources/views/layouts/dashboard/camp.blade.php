@@ -4,7 +4,7 @@
         <div class="row breadcrumbs-top d-inline-block">
             <div class="breadcrumb-wrapper col-12">
                 <ol class="breadcrumb">
-                    @if(!Request::is('admin'))
+                    @if(!Request::is(app()->getLocale().'/admin/dashboard'))
                     <li class="breadcrumb-item"><a href="#">@lang('dashboard.home')</a>
                     </li>
                     @endif

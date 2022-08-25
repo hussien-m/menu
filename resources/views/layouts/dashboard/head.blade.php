@@ -9,7 +9,7 @@
   <meta name="keywords" content="admin template, modern admin template, dashboard template, flat admin template, responsive admin template, web app, crypto dashboard, bitcoin dashboard">
   <meta name="author" content="PIXINVENT">
   <title>
-        {{ $setting->site_name .' | '. $page_name }}
+        {{ $setting->site_name }}
   </title>
   <link rel="apple-touch-icon" href="{{asset('dash-rtl/app-assets/images/ico/apple-icon-120.png')}}">
   <link rel="shortcut icon" type="image/x-icon" href="{{asset('dash-rtl/app-assets/images/ico/favicon.ico')}}">

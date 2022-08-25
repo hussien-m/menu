@@ -25,7 +25,7 @@
             <tbody>
                     <tr id="{{$meal->id}}">
                         <td>#</td>
-                        <td>{{  app()->getLocale() =='ar' ? $meal->name_ar : $meal->name_he  }} </td>>
+                        <td>{{  app()->getLocale() =='en' ? $meal->name_ar : $meal->name_he  }} </td>>
                         <td>{{$meal->slug}}</td>
                         <td>{{$meal->price}}</td>
                         <td>{{ $meal->created_at }}</td>

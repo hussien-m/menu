@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\CreateSectionRequest;
 use App\Models\Section;
+use CreateSectionsTable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
@@ -18,7 +20,7 @@ class SectionController extends Controller
     {
         $data['page_name'] = __('dashboard.sec-name');
         $data['createRoute'] = route('sections.create');
-        $data['sections']  = Section::get();
+        $data['sections']  = Section::latest()->get();
 
         return view('admin.sections.index', $data);
     }
@@ -32,11 +34,8 @@ class SectionController extends Controller
     }
 
 
-    public function store(Request $request)
+    public function store(CreateSectionRequest $request)
     {
-
-
-
 
         if ($request->hasFile('image')) {
             $imagePath = $request->file('image');

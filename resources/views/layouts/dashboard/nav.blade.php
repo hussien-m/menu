@@ -30,9 +30,7 @@
                   <img src="{{asset('dash-rtl/app-assets/images/portrait/small/avatar-s-19.png')}}" alt="avatar"><i></i></span>
               </a>
               <div class="dropdown-menu dropdown-menu-right"><a class="dropdown-item" href="#"><i class="ft-user"></i> Edit Profile</a>
-                <a class="dropdown-item" href="#"><i class="ft-mail"></i> My Inbox</a>
-                <a class="dropdown-item" href="#"><i class="ft-check-square"></i> Task</a>
-                <a class="dropdown-item" href="#"><i class="ft-message-square"></i> Chats</a>
+                <a class="dropdown-item" href="{{ route('admin.changePassword') }}"><i class="ft-mail"></i> تغيير كلمة المرور</a>
                 <div class="dropdown-divider"></div>
                 <div class="text-center">
                     <form action="{{route('logout')}}" method="post">
@@ -43,6 +41,12 @@
 
               </div>
             </li>
+            <Style>
+                    .navbar-expand-md .navbar-nav .dropdown-menu {
+                        position: absolute;
+                        margin-right: -81px;
+                    }
+            </Style>
             <li class="dropdown dropdown-language nav-item"><a class="dropdown-toggle nav-link" id="dropdown-flag" href="#" data-toggle="dropdown"
               aria-haspopup="true" aria-expanded="false"><i class="flag-icon flag-icon-ps"></i><span class="selected-language"></span></a>
               <div class="dropdown-menu" aria-labelledby="dropdown-flag">
@@ -50,37 +54,6 @@
                     <a class="dropdown-item" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}"><i class="flag-icon flag-icon-ps"></i> {{ $properties['native'] }}</a>
                 @endforeach
               </div>
-            </li>
-
-            <li class="dropdown dropdown-notification nav-item">
-              <a class="nav-link nav-link-label" href="#" data-toggle="dropdown"><i class="ficon ft-mail"> </i></a>
-              <ul class="dropdown-menu dropdown-menu-media dropdown-menu-right">
-                <li class="dropdown-menu-header">
-                  <h6 class="dropdown-header m-0">
-                    <span class="grey darken-2">@lang('messages')</span>
-                  </h6>
-                  <span class="notification-tag badge badge-default badge-warning float-right m-0">4 @lang('new')</span>
-                </li>
-                <li class="scrollable-container media-list w-100">
-
-                  <a href="javascript:void(0)">
-                    <div class="media">
-                      <div class="media-left">
-                        <span class="avatar avatar-sm avatar-away rounded-circle">
-                          <img src="{{asset('dash-rtl/app-assets/images/portrait/small/avatar-s-6.png')}}" alt="avatar"><i></i></span>
-                      </div>
-                      <div class="media-body">
-                        <h6 class="media-heading">Eric Alsobrook</h6>
-                        <p class="notification-text font-small-3 text-muted">We have project party this saturday.</p>
-                        <small>
-                          <time class="media-meta text-muted" datetime="2015-06-11T18:29:20+08:00">last month</time>
-                        </small>
-                      </div>
-                    </div>
-                  </a>
-                </li>
-                <li class="dropdown-menu-footer"><a class="dropdown-item text-muted text-center" href="javascript:void(0)">عرض جميع الرسائل</a></li>
-              </ul>
             </li>
           </ul>
         </div>

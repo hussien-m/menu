@@ -52,11 +52,11 @@
                     @forelse ( $meals as $key=>$meal)
                         <tr id="{{$meal->id}}">
                             <td>{{$key+1 }}</td>
-                            <td>{{  app()->getLocale() =='ar' ? $meal->name_ar : $meal->name_he  }} </td>>
-                            <td>{{app()->getLocale() =='ar' ? $meal->section->name_ar : $meal->section->name_he }}</td>
+                            <td>{{  app()->getLocale() =='en' ? $meal->name_ar : $meal->name_he  }} </td>
+                            <td>{{app()->getLocale() =='en' ? $meal->section->name_ar : $meal->section->name_he }}</td>
                             <td>{{$meal->slug}}</td>
                             <td>{{$meal->price}}</td>
-                            <td>{{ $meal->created_at }}</td>
+                            <td>{{ $meal->created_at->diffForHumans() }}</td>
                             <td>
                             @foreach ($meal->extra as $property)
                                 <b>{{ $property['add'] }}</b>: {{ $property['price'] }}<br />
@@ -64,7 +64,7 @@
                             </td>
                             <td>
                                 <span onclick="this.parentElement.style.display='none'" class="closebtn"></span>
-                                <img  src="{{ asset('images/meals/'.$meal->image) }}" class="rounded" with="50" height="50" onclick="myFunction(this);" data-toggle="modal" data-target=".bd-example-modal-lg"/>
+                                <img  src="{{ asset('images/meals/'.$meal->image) }}" class="rounded" width="50" height="50" onclick="myFunction(this);" data-toggle="modal" data-target=".bd-example-modal-lg" />
 
                             </td>
 
@@ -75,7 +75,6 @@
                                         <i class="la la-trash-o"></i>
                                     </button>
                                     <a href="{{route('meals.edit',[$meal->id])}}" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="تعديل القسم" ><i class="la la-edit"></i></a>
-                                    <a href="{{route('meals.show',[$meal->id])}}" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="عرض القسم" ><i class="la la-eye"></i></a>
                                 </form>
                             </td>
                         </tr>
@@ -130,7 +129,7 @@ integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="ano
 <script>
    var t = $('.table').DataTable({
 
-    order:[[3, 'desc'], [0, 'asc']],
+    order:[[1000000, 'desc'], [0, 'asc']],
 
         "oLanguage": {
 

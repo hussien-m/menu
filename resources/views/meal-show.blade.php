@@ -1,49 +1,76 @@
-@extends('layouts.web')
+@extends('app')
 
 @section('content')
 
+<div class="menu-item-list__item">
+    <article class="dish">
 
+          <img
+             data-url=""
+             alt="&quot;Homemade&quot; dumplings" class="dish-image__img" src="{{ asset('images/meals/'.$meal->image) }}">
 
-    <div class="category-list__item">
-        <div class="category-list__item">
-            <div class="category-item">
-                <a href="{{ route('show.meal', $meal->slug) }}"
-                    class="category-item__link focus"
-                    style="background-image:url({{ asset('images/meals/'.$meal->image) }});">
+       <div class="dish-content" style="padding-top: 10px">
+          <div class="dish-body">
+             <div class="dish-header">
+                <h3 class="dish-title">
+                   <!---->
+                   <!----> <span> <a href="{{ route('show.meal',$meal->slug) }}">{{ app()->getLocale() == "en" ? $meal->name_ar:$meal->name_he }}</a></span>
+                </h3>
+                <div class="dish-weight" >
+                   <b>{{ Currency::format($meal->price,'ILS') }}</b>
+                </div>
+             </div>
+             <!---->
+             <div class="dish-description">
+                <p>
+                  <a href="{{ route('show.meal',$meal->slug) }}">{{ app()->getLocale() == "en" ? $meal->description_ar:$meal->description_he }}</a>
+                </p>
+             </div>
+          </div>
+       </div>
+    </article>
+    <!---->
+ </div>
 
-                </a>
-                <!---->
-            </div>
-            <div>
-                <p class="alignright" style="margin-right: 15px;margin-top:5px">{{ app()->getLocale()=="ar" ? $meal->name_ar:$meal->name_he }}</p>
-                <p class="alignleft ml-2" style="margin-left: 15px;margin-top:5px">{{ Currency::format($meal->price,'ILS') }}</p>
+ <b>الاضافات:</b>
 
-            </div>
-            <div>
-                <small class="alignright" style="margin-right: 15px;margin-top:8px">{{ app()->getLocale()=="ar" ? $meal->description_ar:$meal->description_he }}</small>
-            </div>
+ <table class="table table-striped table-bordered table-hover">
+     <thead>
+         <th>الاضافة</th>
+         <th>السعر</th>
+     </thead>
+     <tbody>
+        @php
+        if(app()->getLocale()=="en"){
 
-            <!---->
-        </div>
+            $extra = $meal->extra;
 
+        }
 
-    </div>
-    <b>الاضافات:</b>
+        if(app()->getLocale() =="he") {
 
-    <table class="table table-striped table-bordered table-hover">
-        <thead>
-            <th>الاضافة</th>
-            <th>السعر</th>
-        </thead>
-        <tbody>
-            @foreach ($meal->extra as $property)
-                <tr>
-                    <td>{{ $property['add'] }}</td>
-                    <td>{{ Currency::format($property['price'],'ILS') }}</td>
-                </tr>
-            @endforeach
+            $extra = $meal->extra_he;
+        }
 
-        </tbody>
-    </table>
+        @endphp
+
+         @if(is_null($extra))
+           
+         @else
+
+         @forelse ($extra as $property)
+             <tr>
+                 <td>{{ $property['add'] }}</td>
+                 <td>{{ Currency::format($property['price'],'ILS') }}</td>
+             </tr>
+
+        @empty
+        <td clospan="2">--</td>
+         @endforelse
+
+         @endif
+
+     </tbody>
+ </table>
 
 @stop

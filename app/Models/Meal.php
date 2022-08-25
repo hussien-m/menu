@@ -11,7 +11,8 @@ class Meal extends Model
     protected $guarded = [];
 
     protected $casts = [
-        'extra' => 'array'
+        'extra' => 'array',
+        'extra_he' => 'array',
     ];
     public function section()
     {
@@ -34,5 +35,18 @@ class Meal extends Model
         }
 
         $this->attributes['extra'] = json_encode($extra);
+    }
+
+    public function setExtraHeAttribute($add)
+    {
+        $extra = [];
+
+        foreach ($add as $array_item) {
+            if (!is_null($array_item['price'])) {
+                $extra[] = $array_item;
+            }
+        }
+
+        $this->attributes['extra_he'] = json_encode($extra);
     }
 }

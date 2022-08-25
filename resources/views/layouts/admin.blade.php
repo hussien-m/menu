@@ -10,7 +10,7 @@
     <div class="app-content content">
         <div class="content-wrapper">
 
-            @if( Route::current()->getName() != "admin.home")
+            @if( Route::current()->getName() != "admin.dashbaord")
                 @include('layouts.dashboard.camp')
             @endif
 
