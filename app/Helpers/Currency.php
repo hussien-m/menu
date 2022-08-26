@@ -13,7 +13,7 @@ class Currency
 
     public static function format($amount, $currency = null)
     {
-        $formatter = new NumberFormatter(config('app.locale'), NumberFormatter::CURRENCY);
+        $formatter = new NumberFormatter('en', NumberFormatter::CURRENCY);
         if ($currency === null) {
             $currency = config('app.currency', 'USD');
         }

@@ -7,7 +7,7 @@
         <a href="{{ route('show.section', $first_section->slug) }}"
             class="category-item__link focus"
             style="background-image:url({{ asset('images/sections/'.$first_section->image) }});">
-            <h2 class="h2"><b>{{ app()->getLocale()=="en" ? $first_section->name_ar:$first_section->name_he }}</b></h2>
+            <h2 class="h2"><b>{{ app()->getLocale()=="ar" ? $first_section->name_ar:$first_section->name_he }}</b></h2>
         </a>
         <!---->
     </div>
@@ -23,7 +23,7 @@
                         <a href="{{ route('show.section', $section->slug) }}"
                             class="category-item__link focus"
                             style="background-image:url({{ asset('images/sections/'.$section->image) }});">
-                            <h2 class="h2"><b>{{ app()->getLocale()=="en" ? $section->name_ar:$section->name_he }}</b></h2>
+                            <h2 class="h2"><b>{{ app()->getLocale()=="ar" ? $section->name_ar:$section->name_he }}</b></h2>
                         </a>
                         <!---->
                     </div>

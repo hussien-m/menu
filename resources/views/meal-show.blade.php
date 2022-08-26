@@ -14,7 +14,7 @@
              <div class="dish-header">
                 <h3 class="dish-title">
                    <!---->
-                   <!----> <span> <a href="{{ route('show.meal',$meal->slug) }}">{{ app()->getLocale() == "en" ? $meal->name_ar:$meal->name_he }}</a></span>
+                   <!----> <span> <a href="{{ route('show.meal',$meal->slug) }}">{{ app()->getLocale() == "ar" ? $meal->name_ar:$meal->name_he }}</a></span>
                 </h3>
                 <div class="dish-weight" >
                    <b>{{ Currency::format($meal->price,'ILS') }}</b>
@@ -23,7 +23,7 @@
              <!---->
              <div class="dish-description">
                 <p>
-                  <a href="{{ route('show.meal',$meal->slug) }}">{{ app()->getLocale() == "en" ? $meal->description_ar:$meal->description_he }}</a>
+                  <a href="{{ route('show.meal',$meal->slug) }}">{{ app()->getLocale() == "ar" ? $meal->description_ar:$meal->description_he }}</a>
                 </p>
              </div>
           </div>
@@ -41,7 +41,7 @@
      </thead>
      <tbody>
         @php
-        if(app()->getLocale()=="en"){
+        if(app()->getLocale()=="ar"){
 
             $extra = $meal->extra;
 
@@ -55,7 +55,7 @@
         @endphp
 
          @if(is_null($extra))
-           
+
          @else
 
          @forelse ($extra as $property)

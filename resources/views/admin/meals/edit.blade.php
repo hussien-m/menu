@@ -95,7 +95,8 @@
                         السعر:
                     </div>
                 </div>
-                @for ($i=0; $i <= count($meal->extra_he); $i++)
+
+                @for ($i=0; $i <= 11; $i++)
                     <div class="row">
                         <div class="col-md-2">
                             <input type="text" name="extra[{{ $i }}][add]" class="form-control"
@@ -119,7 +120,7 @@
                         السعر:
                     </div>
                 </div>
-                @for ($i=0; $i <= count($meal->extra_he) ; $i++)
+                @for ($i=0; $i <= 11 ; $i++)
                     <div class="row">
                         <div class="col-md-2">
                             <input type="text" name="extra_he[{{ $i }}][add]" class="form-control"
