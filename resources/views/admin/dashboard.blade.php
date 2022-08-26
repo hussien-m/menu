@@ -40,7 +40,7 @@
             <div class="media d-flex">
               <div class="media-body text-left">
                 <h3 class="warning">{{ $meals->count() }}</h3>
-                <h6><a href="{{ route('meals.index') }}"></a></h6>
+                <h6><a href="{{ route('meals.index') }}">الوجبات</a></h6>
               </div>
               <div>
                 <i class="icon-pie-chart warning font-large-2 float-right"></i>
