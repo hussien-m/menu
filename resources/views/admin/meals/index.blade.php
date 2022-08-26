@@ -50,8 +50,8 @@
                 <tbody>
                     @forelse ( $meals as $key=>$meal)
                         <tr id="{{$meal->id}}">
-                            <td>{{  app()->getLocale() =='en' ? $meal->name_ar : $meal->name_he  }} </td>
-                            <td>{{app()->getLocale() =='en' ? $meal->section->name_ar : $meal->section->name_he }}</td>
+                            <td>{{  app()->getLocale() =='ar' ? $meal->name_ar : $meal->name_he  }} </td>
+                            <td>{{app()->getLocale() =='ar' ? $meal->section->name_ar : $meal->section->name_he }}</td>
                             <td>{{$meal->slug}}</td>
                             <td>{{$meal->price}}</td>
                             <td>{{ $meal->created_at->diffForHumans() }}</td>

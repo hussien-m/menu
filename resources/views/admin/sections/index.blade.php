@@ -49,7 +49,7 @@
                     @forelse ( $sections as $key=>$section )
                         <tr id="{{$section->id}}">
 
-                            <td>{{  app()->getLocale() =='en' ? $section->name_ar : $section->name_he  }} </td>
+                            <td>{{  app()->getLocale() =='ar' ? $section->name_ar : $section->name_he  }} </td>
                             <td>
                                 <span onclick="this.parentElement.style.display='none'" class="closebtn"></span>
                                 <img  src="{{ asset('images/sections/'.$section->image) }}" class="rounded" width="50" height="50" onclick="myFunction(this);" data-toggle="modal" data-target=".bd-example-modal-lg"/>
