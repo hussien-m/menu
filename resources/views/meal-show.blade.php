@@ -32,7 +32,6 @@
     <!---->
  </div>
 
- <b>@lang('dashboard.extras')</b>
 
  <table class="table table-striped table-bordered table-hover">
      <thead>
