@@ -103,7 +103,7 @@
                 @foreach ($meals as $key=>$meal)
                 <tr id="{{$meal->id}}">
                     <td>{{  app()->getLocale() =='en' ? $meal->name_ar : $meal->name_he  }} </td>
-                    <td><button type="button" class="btn btn-sm btn-outline-info round">{{app()->getLocale() =='en' ? $meal->section->name_ar : $meal->section->name_he }}</button></td>
+                    <td><button type="button" class="btn btn-sm btn-outline-info round">{{app()->getLocale() =='ar' ? $meal->section->name_ar : $meal->section->name_he }}</button></td>
                     <td> <img  src="{{ asset('images/meals/'.$meal->image) }}" class="rounded" width="50" height="50" onclick="myFunction(this);" data-toggle="modal" data-target=".bd-example-modal-lg" />
                     </td>
                     <td>{{$meal->price}}</td>
