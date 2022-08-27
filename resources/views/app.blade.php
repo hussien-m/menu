@@ -71,7 +71,7 @@
                         <div class="menu-category-page">
                            <div class="place-nav">
                               <div class="place-nav__inner wrapper">
-                                 <a onclick="" href="{{ url()->previous() }}"
+                                 <a href="javascript:void(0);" onclick="javascript:history.go(-1);"
                                     class="back-button focus nuxt-link-active">
                                     <svg width="24"
                                        height="24" viewBox="0 0 24 24" fill="none"
