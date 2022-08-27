@@ -36,5 +36,17 @@
   <!-- BEGIN Custom CSS-->
   <link rel="stylesheet" type="text/css" href="{{asset('dash-rtl/assets/css/style-rtl.css')}}">
   <!-- END Custom CSS-->
+
+  @if(app()->getLocale()=="he")
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo&display=swap" rel="stylesheet">
+      <style>
+  *{
+          font-family: 'Heebo', sans-serif;
+  }
+      </style>
+@endif
   @yield('styles')
 </head>
