@@ -53,7 +53,7 @@
                 <div itemscope="itemscope" itemtype="https://schema.org/LocalBusiness" class="place-body">
                     <div class="place-header wrapper">
                         <div class="place-header__bg"
-                            style="background-image:url({{ asset('images/header.jpg') }});"></div>
+                            style="background-image:url({{asset('images/settings/'.$setting->banner_image)}});"></div>
                     </div>
                     <div class="place-content wrapper">
 

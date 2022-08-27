@@ -6,7 +6,7 @@
 
 @section('content')
 
-<form action="{{route('admin.settings.save')}}" method="post">
+<form action="{{route('admin.settings.save')}}" method="post" enctype="multipart/form-data">
     @csrf
 <div class="row">
 
@@ -42,6 +42,15 @@
                     <fieldset class="form-group">
                         <label class="text-muted">اسم الموقع</label>
                         <input type="text" name="wifi_password" class="form-control" value="{{$settings->wifi_password}}">
+                    </fieldset>
+
+                    <fieldset class="form-group">
+                        <label class="text-muted">شعار الموقع</label>
+                        <input type="file" name="logo_iamge" class="form-control" >
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <label class="text-muted">صورة البنر</label>
+                        <input type="file" name="banner_image" class="form-control">
                     </fieldset>
 
                 </div>

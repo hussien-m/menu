@@ -37,9 +37,33 @@ class SettingController extends Controller
             'instagram'             =>'required',
             'wifi_password'         =>'required',
             'wifi_name'             =>'required',
+            'logo_iamge'            =>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
+            'banner_image'          =>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        DB::table('settings')->update($settings);
+        if ($request->hasFile('banner_image') && $request->hasFile('logo_iamge') ) {
+
+
+            $imagePath = $request->file('banner_image');
+            $imageName = time() . '-' . $request->user_name . '.' . $request->file("banner_image")->extension();
+            $path = $request->file('banner_image')
+                ->move(public_path("images".DIRECTORY_SEPARATOR."settings"), $imageName);
+            $request->banner_image = $imageName;
+
+            $imagePath = $request->file('logo_iamge');
+            $imageName2 = time() . '-' . $request->user_name . '.' . $request->file("logo_iamge")->extension();
+            $path = $request->file('logo_iamge')
+                ->move(public_path("images".DIRECTORY_SEPARATOR."settings"), $imageName2);
+            $request->logo_iamge = $imageName2;
+
+            $settings['banner_image']  = $imageName;
+            $settings['logo_iamge']    = $imageName2;
+            DB::table('settings')->update($settings);
+
+        }
+
+
+
         toast('تم حفظ الاعدادت','success');
         return redirect()->route('admin.settings');
 
