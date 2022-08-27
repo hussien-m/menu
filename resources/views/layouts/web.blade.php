@@ -13,6 +13,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
     <style>
+       @if(app()->getLocale()=="ar")
         *{
             font-family: 'Cairo', sans-serif;
 
@@ -21,12 +22,24 @@
             font-family: 'Cairo', sans-serif;
 
         }
+        @endif
 
         .category-item__link .h2 {
             font-size: 28px;
             color: #FFF;
         }
     </style>
+        @if(app()->getLocale()=="he")
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Heebo&display=swap" rel="stylesheet">
+            <style>
+
+                font-family: 'Heebo', sans-serif;
+
+            </style>
+        @endif
 </head>
 
 <body direction="rtl">

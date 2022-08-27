@@ -32,12 +32,12 @@
     <!---->
  </div>
 
- <b>الاضافات:</b>
+ <b>@lang('dashboard.extras')</b>
 
  <table class="table table-striped table-bordered table-hover">
      <thead>
-         <th>الاضافة</th>
-         <th>السعر</th>
+         <th>@lang('dashboard.extra')</th>
+         <th>@lang('dashboard.price')</th>
      </thead>
      <tbody>
         @php
