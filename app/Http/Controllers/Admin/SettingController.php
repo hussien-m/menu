@@ -41,7 +41,7 @@ class SettingController extends Controller
             'banner_image'          =>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
 
-        if ($request->hasFile('banner_image') && $request->hasFile('logo_iamge') ) {
+        if ($request->hasFile('banner_image')) {
 
 
             $imagePath = $request->file('banner_image');
@@ -50,17 +50,26 @@ class SettingController extends Controller
                 ->move(public_path("images".DIRECTORY_SEPARATOR."settings"), $imageName);
             $request->banner_image = $imageName;
 
-            $imagePath = $request->file('logo_iamge');
-            $imageName2 = time() . '-' . $request->user_name . '.' . $request->file("logo_iamge")->extension();
-            $path = $request->file('logo_iamge')
-                ->move(public_path("images".DIRECTORY_SEPARATOR."settings"), $imageName2);
-            $request->logo_iamge = $imageName2;
 
             $settings['banner_image']  = $imageName;
-            $settings['logo_iamge']    = $imageName2;
-            DB::table('settings')->update($settings);
 
         }
+
+        if ($request->hasFile('logo_iamge')) {
+
+
+            $imagePath = $request->file('logo_iamge');
+            $imageName = time() . '-' . $request->user_name . '.' . $request->file("logo_iamge")->extension();
+            $path = $request->file('logo_iamge')
+                ->move(public_path("images".DIRECTORY_SEPARATOR."settings"), $imageName);
+            $request->logo_iamge = $imageName;
+
+
+            $settings['logo_iamge']  = $imageName;
+
+        }
+        
+        DB::table('settings')->update($settings);
 
 
 

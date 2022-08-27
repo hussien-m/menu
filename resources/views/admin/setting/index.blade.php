@@ -50,7 +50,7 @@
                     </fieldset>
                     <fieldset class="form-group">
                         <label class="text-muted">صورة البنر</label>
-                        <input type="file" name="banner_image" class="form-control">
+                        <input type="file" name="banner_image" class="form-control" >
                     </fieldset>
 
                 </div>
