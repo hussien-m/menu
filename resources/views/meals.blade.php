@@ -19,10 +19,10 @@
                 <div class="dish-header">
                    <h3 class="dish-title">
                       <!---->
-                      <!----> <span> <a href="{{ route('show.meal',$meal->slug) }}">{{ app()->getLocale() == "ar" ? $meal->name_ar:$meal->name_he }}</a></span>
+                      <!----> <span> <b><a href="{{ route('show.meal',$meal->slug) }}">{{ app()->getLocale() == "ar" ? $meal->name_ar:$meal->name_he }}</a></span></b>
                    </h3>
                    <div class="dish-weight" >
-                      <b>{{ Currency::format($meal->price,'ILS') }}</b>
+                      <h6><b>{{ Currency::format($meal->price,'ILS') }}</b></h6>
                    </div>
                 </div>
                 <!---->

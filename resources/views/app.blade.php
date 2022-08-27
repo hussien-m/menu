@@ -19,7 +19,7 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
         <style>
-             
+
             *{
                 font-family: 'Cairo', sans-serif;
 
@@ -45,9 +45,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Heebo&display=swap" rel="stylesheet">
         <style>
-
+*{
             font-family: 'Heebo', sans-serif;
-
+}
         </style>
     @endif
    </head>

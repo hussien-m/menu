@@ -29,17 +29,19 @@
             color: #FFF;
         }
     </style>
-        @if(app()->getLocale()=="he")
+
+    @if(app()->getLocale()=="he")
 
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Heebo&display=swap" rel="stylesheet">
             <style>
-
+        *{
                 font-family: 'Heebo', sans-serif;
-
+        }
             </style>
-        @endif
+    @endif
+
 </head>
 
 <body direction="rtl">
