@@ -35,7 +35,7 @@
 
  @if(app()->getLocale()=="ar")
 
-    @if (is_null($meal->extra))
+    @if (empty($meal->extra))
 
     @else
         <table class="table table-striped table-bordered table-hover">
@@ -61,7 +61,7 @@
 
 @if(app()->getLocale() == "he")
 
-    @if (is_null($meal->extra_he))
+    @if (empty($meal->extra_he))
 
     @else
         <table class="table table-striped table-bordered table-hover">
