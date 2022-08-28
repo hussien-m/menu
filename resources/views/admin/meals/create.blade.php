@@ -18,7 +18,7 @@
                         <option selected disabled>---</option>
                         @foreach ($sections as $section)
                             <option value="{{ $section->id }}">
-                                {{ app()->getLocale() == 'en' ? $section->name_ar : $section->name_he }}</option>
+                                {{ app()->getLocale() == 'ar' ? $section->name_ar : $section->name_he }}</option>
                         @endforeach
                     </select>
                     @error('section_id')
