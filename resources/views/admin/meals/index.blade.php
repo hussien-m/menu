@@ -56,9 +56,11 @@
                             <td>{{$meal->price}}</td>
                             <td>{{ $meal->created_at->diffForHumans() }}</td>
                             <td>
+                             @if(!is_null($meal->extra))
                             @foreach ($meal->extra as $property)
                                 <b>{{ $property['add'] }}</b>: {{ $property['price'] }}<br />
                             @endforeach
+                            @endif
                             </td>
                             <td>
                                 <span onclick="this.parentElement.style.display='none'" class="closebtn"></span>
