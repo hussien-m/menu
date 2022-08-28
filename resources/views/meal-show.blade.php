@@ -33,43 +33,57 @@
  </div>
 
 
- <table class="table table-striped table-bordered table-hover">
-     <thead>
-         <th>@lang('dashboard.extra')</th>
-         <th>@lang('dashboard.price')</th>
-     </thead>
-     <tbody>
-        @php
-        if(app()->getLocale()=="ar"){
+ @if(app()->getLocale()=="ar")
 
-            $extra = $meal->extra;
+    @if (is_null($meal->extra))
 
-        }
+    @else
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <th>@lang('dashboard.extra')</th>
+                <th>@lang('dashboard.price')</th>
+            </thead>
+            <tbody>
 
-        if(app()->getLocale() =="he") {
+                @foreach ($meal->extra as $property)
+                    <tr>
+                        <td>{{ $property['add'] }}</td>
+                        <td>{{ Currency::format($property['price'],'ILS') }}</td>
+                    </tr>
+                @endforeach
 
-            $extra = $meal->extra_he;
-        }
+            </tbody>
+        </table>
+    @endif
 
-        @endphp
+@endif
 
-         @if(is_null($extra))
 
-         @else
+@if(app()->getLocale() == "he")
 
-         @forelse ($extra as $property)
-             <tr>
-                 <td>{{ $property['add'] }}</td>
-                 <td>{{ Currency::format($property['price'],'ILS') }}</td>
-             </tr>
+    @if (is_null($meal->extra_he))
 
-        @empty
-        <td clospan="2">--</td>
-         @endforelse
+    @else
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <th>@lang('dashboard.extra')</th>
+                <th>@lang('dashboard.price')</th>
+            </thead>
+            <tbody>
 
-         @endif
+                @foreach ($meal->extra_he as $property)
+                    <tr>
+                        <td>{{ $property['add'] }}</td>
+                        <td>{{ Currency::format($property['price'],'ILS') }}</td>
+                    </tr>
+                @endforeach
 
-     </tbody>
- </table>
+            </tbody>
+        </table>
+    @endif
+
+@endif
+
+
 
 @stop
