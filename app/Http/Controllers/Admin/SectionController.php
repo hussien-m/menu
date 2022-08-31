@@ -9,6 +9,7 @@ use CreateSectionsTable;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
+
 class SectionController extends Controller
 {
     public function __construct()
@@ -30,7 +31,7 @@ class SectionController extends Controller
     {
         $data['page_name'] = __('dashboard.add_new_section');
         $data['createRoute'] = route('sections.create');
-        return view('admin.sections.create',$data);
+        return view('admin.sections.create', $data);
     }
 
 
@@ -41,7 +42,7 @@ class SectionController extends Controller
             $imagePath = $request->file('image');
             $imageName = time() . '-' . $request->user_name . '.' . $request->file("image")->extension();
             $path = $request->file('image')
-                ->move(public_path("images".DIRECTORY_SEPARATOR."sections"), $imageName);
+                ->move(public_path("images" . DIRECTORY_SEPARATOR . "sections"), $imageName);
             $request->image = $imageName;
         }
 
@@ -53,7 +54,7 @@ class SectionController extends Controller
 
         ]);
 
-        toast('تمت الاضافة بنجاح','success');
+        toast('تمت الاضافة بنجاح', 'success');
         return redirect()->route('sections.index');
     }
 
@@ -63,50 +64,49 @@ class SectionController extends Controller
         $data['page_name'] = __('dashboard.edit_section');
         $data['createRoute'] = route('sections.create');
         $data['section'] = Section::findOrFail($id);
-       // return view('admin.sections.edit',$data);
+        // return view('admin.sections.edit',$data);
     }
 
 
     public function edit($id)
     {
 
-        $data['page_name'] = __('dashboard.edit_section');
-        $data['createRoute'] = route('sections.create');
-        $data['section'] = Section::findOrFail($id);
-        return view('admin.sections.edit',$data);
+        $data['page_name']    = __('dashboard.edit_section');
+        $data['createRoute']  = route('sections.create');
+        $data['section']      = Section::findOrFail($id);
+        return view('admin.sections.edit', $data);
     }
 
 
     public function update(Request $request, $id)
     {
 
-        $section= Section::findOrFail($id);
-        $image = public_path('images'.DIRECTORY_SEPARATOR.'sections'.DIRECTORY_SEPARATOR.$section->image);
+        $section = Section::findOrFail($id);
+        $image = public_path('images' . DIRECTORY_SEPARATOR . 'sections' . DIRECTORY_SEPARATOR . $section->image);
 
         if ($request->hasFile('image')) {
 
-            if(File::exists($image)){
+            if (File::exists($image)) {
                 File::delete($image);
-             }
+            }
 
             $imagePath = $request->file('image');
             $imageName = time() . '-' . $request->user_name . '.' . $request->file("image")->extension();
             $path = $request->file('image')
                 ->move(public_path("images/sections"), $imageName);
             $request->image = $imageName;
-            $section->image=$imageName;
-
+            $section->image = $imageName;
         }
 
 
-        $section->name_ar=$request->name_ar;
-        $section->name_he=$request->name_he;
-        $section->slug=$request->slug;
+        $section->name_ar = $request->name_ar;
+        $section->name_he = $request->name_he;
+        $section->slug = $request->slug;
 
 
         $section->save();
 
-        toast('تمت التعديل بنجاح','success');
+        toast('تمت التعديل بنجاح', 'success');
         return redirect()->route('sections.index');
     }
 
@@ -114,14 +114,12 @@ class SectionController extends Controller
 
     public function destroy($id)
     {
-        $type= Section::findOrFail($id);
-        $image = public_path('images'.DIRECTORY_SEPARATOR.'sections'.DIRECTORY_SEPARATOR.$type->image);
+        $type = Section::findOrFail($id);
+        $image = public_path('images' . DIRECTORY_SEPARATOR . 'sections' . DIRECTORY_SEPARATOR . $type->image);
 
-        if(File::exists($image)) {
-         File::delete($image);
-
-         }
-
-         $type->delete();
+        if (File::exists($image)) {
+            File::delete($image);
+        }
+        $type->delete();
     }
 }

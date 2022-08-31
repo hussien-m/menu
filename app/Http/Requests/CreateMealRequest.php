@@ -26,8 +26,8 @@ class CreateMealRequest extends FormRequest
         return [
             'name_ar'              => 'required|string|min:3|max:50',
             'name_he'              => 'required|string|min:3|max:50',
-            'description_ar'       => 'required|string|min:30|max:200',
-            'description_he'       => 'required|string|min:30|max:200',
+            'description_ar'       => 'string',
+            'description_he'       => 'string',
             'image'                => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'price'                => 'required|int|min:1|max:100',
             'section_id'           => 'required|int|exists:sections,id',
