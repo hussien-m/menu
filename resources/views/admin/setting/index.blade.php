@@ -94,7 +94,7 @@
                     </fieldset>
 
                     <fieldset class="form-group">
-                        <label class="text-muted">تويتر</label>
+                        <label class="text-muted">تيك توك</label>
                         <input type="text" class="form-control border-primary" name='tiwtter' value="{{$settings->tiwtter}}">
                     </fieldset>
 

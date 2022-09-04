@@ -38,6 +38,7 @@
                 <thead>
                   <tr>
 
+                    <th>#</th>
                     <th>@lang('dashboard.sec-name')</th>
                     <th>@lang('dashboard.sec-image')</th>
                     <th>@lang('dashboard.sec-slug')</th>
@@ -48,7 +49,7 @@
                 <tbody>
                     @forelse ( $sections as $key=>$section )
                         <tr id="{{$section->id}}">
-
+                            <td>{{ $key+=1 }}</td>
                             <td>{{  app()->getLocale() =='ar' ? $section->name_ar : $section->name_he  }} </td>
                             <td>
                                 <span onclick="this.parentElement.style.display='none'" class="closebtn"></span>
@@ -75,6 +76,7 @@
                 </tbody>
                 <tfoot>
                     <tr>
+                        <th>#</th>
                         <th>@lang('dashboard.sec-name')</th>
                         <th>@lang('dashboard.sec-image')</th>
                         <th>@lang('dashboard.sec-slug')</th>
@@ -111,10 +113,9 @@ integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="ano
 <script src="{{asset('dash-rtl/app-assets/vendors/js/forms/toggle/switchery.min.js')}}" type="text/javascript"></script>
 <script src="{{asset('dash-rtl/app-assets/js/scripts/forms/switch.js')}}" type="text/javascript"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
 <script>
    var t = $('.table').DataTable({
-
-
 
         "oLanguage": {
 

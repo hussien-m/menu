@@ -74,6 +74,18 @@
                             </div>
                         </div>
 
+                        <div class="text-center">
+                            <p style="font-size: 22px" class=""> @lang('dashboard.follow_us')
+
+                                <a target="blank" href="{{ $setting->facebook }}"><i class="fa-brands fa-facebook"></i> </a>
+
+                                 <a target="blank" href="{{ $setting->instagram }}"><i class="fa-brands fa-instagram"></i></a>
+
+                                 <a target="blank" href="{{ $setting->tiwtter }}"><i class="fa-brands fa-tiktok"></i> </a>
+
+                            </p>
+                        </div>
+
                         <div selected-menu="[object Object]" class="place-layout">
 
                             <div class="cafe-list">

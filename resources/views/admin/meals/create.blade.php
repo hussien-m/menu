@@ -53,6 +53,15 @@
                     @enderror
                 </div>
                 <div class="form-group">
+                    <label for="name">@lang('dashboard.meal-price')</label>
+                    <input type="number" max="100" min="1"
+                        class="form-control @error('price_two') is-invalid @enderror" name="price_two" id="name"
+                        value="{{ old('price_two') }}">
+                    @error('price_two')
+                        <p class="text-danger">{{ $message }}</p>
+                    @enderror
+                </div>
+                <div class="form-group">
                     <label for="name">@lang('dashboard.meal-description_ar')</label>
                     <textarea type="text" class="form-control @error('description_ar') is-invalid @enderror" name="description_ar">{{ old('description_ar') }}</textarea>
                     @error('description_ar')

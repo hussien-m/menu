@@ -22,7 +22,7 @@
                       <!----> <span> <b><a href="{{ route('show.meal',$meal->slug) }}">{{ app()->getLocale() == "ar" ? $meal->name_ar:$meal->name_he }}</a></span></b>
                    </h3>
                    <div class="dish-weight" >
-                      <h6><b>{{ Currency::format($meal->price,'ILS') }}</b></h6>
+                      <h6><b>{{ Currency::format($meal->price,'ILS') ." | ". Currency::format($meal->price_two,'ILS')  }}</b></h6>
                    </div>
                 </div>
                 <!---->

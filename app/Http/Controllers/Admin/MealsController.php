@@ -17,12 +17,17 @@ class MealsController extends Controller
     {
         $this->middleware('auth');
     }
-    public function index()
+    public function index(Request $request)
     {
-        $data['page_name'] = __('dashboard.meals');
+
+        $data['page_name']   = __('dashboard.meals');
         $data['createRoute'] = route('meals.create');
-        $data['meals']  = Meal::latest()->get();
-       // dd($data['meals']);
+        $data['sections']    = Section::get();
+
+        $data['meals']       = Meal::when($request->has('section_id'),function($query)use($request){
+                return $query->where('section_id',$request->section_id);
+        })->latest()->get();
+
         return view('admin.meals.index', $data);
     }
 
@@ -52,6 +57,7 @@ class MealsController extends Controller
                 'slug' => $request->slug,
                 'section_id' => $request->section_id,
                 'price' => $request->price,
+                'price_two' => $request->price_two,
                 'image' => $imageName,
                 'extra' => $request->extra,
                 'extra_he' => $request->extra_he,
@@ -111,6 +117,7 @@ class MealsController extends Controller
         $meal->description_ar = $request->description_ar;
         $meal->slug = $request->slug;
         $meal->price = $request->price;
+        $meal->price_two = $request->price_two;
         $meal->extra = $request->extra;
         $meal->save();
 
@@ -124,12 +131,8 @@ class MealsController extends Controller
     {
         $meal  = Meal::findOrFail($id);
 
-        $image = ImageMeal::where('meal_id',$meal->id)->get();
-
-            if(File::exists($img=public_path('images'.DIRECTORY_SEPARATOR.'meals'.DIRECTORY_SEPARATOR.$image->image))){
-
+            if(File::exists($img=public_path('images'.DIRECTORY_SEPARATOR.'meals'.DIRECTORY_SEPARATOR.$meal->image))){
                File::delete($img);
-
             }
 
         $meal->delete();

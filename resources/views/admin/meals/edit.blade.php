@@ -44,7 +44,15 @@
                 <label for="name">@lang('dashboard.sec-price')</label>
                 <input type="number" max="100" min="1" class="form-control @error('price') is-invalid @enderror" name="price"
                     id="name" value="{{ old('price') ?? $meal->price }}">
-                @error('name_he')
+                @error('price')
+                    <p class="text-danger">{{ $message }}</p>
+                @enderror
+            </div>
+            <div class="form-group">
+                <label for="name">@lang('dashboard.sec-price')</label>
+                <input type="number" max="100" min="1" class="form-control @error('price_two') is-invalid @enderror" name="price_two"
+                    id="name" value="{{ old('price_two') ?? $meal->price_two }}">
+                @error('price_two')
                     <p class="text-danger">{{ $message }}</p>
                 @enderror
             </div>

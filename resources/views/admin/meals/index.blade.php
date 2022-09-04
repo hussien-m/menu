@@ -33,10 +33,26 @@
             </div>
           </div>
           <div class="card-content collapse show">
+
+            <div class="text-center m-3">
+                <form method="get">
+                    <select class="form-control" name="section_id" onchange="this.form.submit()">
+                        <option selected disabled>عرض حسب القسم</option>
+                        @forelse ( $sections  as $section )
+                            <option value="{{ $section->id }}"> {{ app()->getLocale()=="ar" ? $section->name_ar:$section->name_he }}</option>
+                        @empty
+
+                        @endforelse
+
+                    </select>
+                </form>
+            </div>
             <div class="card-body card-dashboard">
+
               <table class="table table-striped table-bordered zero-configuration">
                 <thead>
                   <tr>
+                    <th>#</th>
                     <th>@lang('dashboard.meal-name')</th>
                     <th>@lang('dashboard.sections')</th>
                     <th>@lang('dashboard.meal-slug')</th>
@@ -50,10 +66,11 @@
                 <tbody>
                     @forelse ( $meals as $key=>$meal)
                         <tr id="{{$meal->id}}">
+                            <td>{{ $key+=1 }}</td>
                             <td>{{  app()->getLocale() =='ar' ? $meal->name_ar : $meal->name_he  }} </td>
                             <td>{{app()->getLocale() =='ar' ? $meal->section->name_ar : $meal->section->name_he }}</td>
                             <td>{{$meal->slug}}</td>
-                            <td>{{$meal->price}}</td>
+                            <td>A: {{$meal->price}} | B: {{$meal->price_two}} </td>
                             <td>{{ $meal->created_at->diffForHumans() }}</td>
                             <td>
                              @if(!is_null($meal->extra))
@@ -86,6 +103,7 @@
                 </tbody>
                 <tfoot>
                     <tr>
+                        <td>#</td>
                         <th>@lang('dashboard.meal-name')</th>
                         <th>@lang('dashboard.sections')</th>
                         <th>@lang('dashboard.meal-slug')</th>

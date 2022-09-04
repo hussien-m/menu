@@ -17,7 +17,7 @@
                    <!----> <span> <a href="{{ route('show.meal',$meal->slug) }}">{{ app()->getLocale() == "ar" ? $meal->name_ar:$meal->name_he }}</a></span>
                 </h3>
                 <div class="dish-weight" >
-                   <b>{{ Currency::format($meal->price,'ILS') }}</b>
+                   <b>{{ Currency::format($meal->price,'ILS') ." | ". Currency::format($meal->price_two,'ILS')  }}</b>
                 </div>
              </div>
              <!---->
