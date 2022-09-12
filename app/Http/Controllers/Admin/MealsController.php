@@ -40,6 +40,19 @@ class MealsController extends Controller
         return view('admin.meals.create',$data);
     }
 
+    public function createSame(Request $request)
+    {
+       // return $request->meal_id;
+
+        $data['meal'] = Meal::findOrFail($request->meal_id);
+        $data['page_name']   = __('dashboard.add_new_meals');
+        $data['createRoute'] = route('meals.create');
+        $data['sections']   = Section::get();
+        return view('admin.meals.same',$data);
+    }
+
+
+
 
     public function store(CreateMealRequest $request)
     {

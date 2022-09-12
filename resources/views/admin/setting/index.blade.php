@@ -89,6 +89,11 @@
                 <div class="card-body">
 
                     <fieldset class="form-group">
+                        <label class="text-muted">رقم الهاتف</label>
+                        <input type='text' class="form-control border-primary" name='phone' value="{{$settings->phone}}">
+                    </fieldset>
+
+                    <fieldset class="form-group">
                         <label class="text-muted">الفيسبوك</label>
                         <input type='text' class="form-control border-primary" name='facebook' value="{{$settings->facebook}}">
                     </fieldset>

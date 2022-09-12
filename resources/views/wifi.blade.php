@@ -21,5 +21,19 @@
         <div style="text-align:center">
             <a href="{{ route('homepage') }}"><img src="{{ asset('web/l.png') }}" width="50%" ></a>
         </div>
+        <div class="text-center">
+            <p style="font-size: 20px;" class="mr-3"> @lang('dashboard.follow_us')
+
+                <a  target="blank" href="{{ $setting->facebook }}"><i class="m-2 fa-brands fa-facebook"></i> </a>
+
+                 <a  target="blank" href="{{ $setting->instagram }}"><i class="m-2 fa-brands fa-instagram"></i></a>
+
+                 <a target="blank" href="{{ $setting->tiwtter }}"><i class="m-2 fa-brands fa-tiktok"></i> </a>
+                    |
+                 <a target="blank" href="https://wa.me/{{$setting->phone}}"><i  class="m-2 fa fa-phone" aria-hidden="true"></i> </a>
+
+
+            </p>
+        </div>
     </div>
 

@@ -91,8 +91,9 @@
                                     <button data-id="{{ $meal->id }}" data-name="{{$meal->title}}" data-toggle="tooltip" data-placement="top" title="" data-original-title="حذف القسم"  class="btn  btn-danger del">
                                         <i class="la la-trash-o"></i>
                                     </button>
-                                    <a href="{{route('meals.edit',[$meal->id])}}" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="تعديل القسم" ><i class="la la-edit"></i></a>
+                                    <a  href="{{route('meals.edit',[$meal->id])}}" class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="تعديل القسم" ><i class="la la-edit"></i></a>
                                 </form>
+                                <a class="btn btn-info btn-xs" data-toggle="tooltip" data-placement="top" title="" data-original-title="اضف وجبة مماثلة"  href="{{ route('admin.create.meal.same',$meal->id) }}"><i class="la la-plus"></i></a>
                             </td>
                         </tr>
                     @empty

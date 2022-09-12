@@ -37,6 +37,7 @@ class SettingController extends Controller
             'instagram'             =>'required',
             'wifi_password'         =>'required',
             'wifi_name'             =>'required',
+            'phone'                 =>'required',
             'logo_iamge'            =>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
             'banner_image'          =>'image|mimes:jpeg,png,jpg,gif,svg|max:2048',
         ]);
@@ -68,7 +69,7 @@ class SettingController extends Controller
             $settings['logo_iamge']  = $imageName;
 
         }
-        
+
         DB::table('settings')->update($settings);
 
 

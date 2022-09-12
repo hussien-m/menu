@@ -19,7 +19,7 @@ class FrontendController extends Controller
     {
         $section = Section::where('slug',$slug)->firstOrFail();
 
-        $meals   =  Meal::with('section')->where('section_id',$section->id)->latest()->take('6')->get();
+        $meals   =  Meal::with('section')->where('section_id',$section->id)->latest()->paginate(2);
         $section_name = Section::where('slug',$slug)->select('name_ar','name_he')->get();
 
 

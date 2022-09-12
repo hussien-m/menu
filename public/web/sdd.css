@@ -484,14 +484,6 @@ textarea {
     font-family: "Rubik", Arial, sans-serif
 }
 
-@media (max-width:600px) {
-
-    input,
-    select,
-    textarea {
-        font-size: 16px !important
-    }
-}
 
 select:focus {
     outline: none
@@ -1468,11 +1460,7 @@ html[dir=rtl] .menu-item-search-form .menu-item-search-form-button {
     letter-spacing: 1px
 }
 
-@media (min-width:420px) {
-    .category-item__link .h2 {
-        font-size: 28px
-    }
-}
+
 
 .category-item__link:before {
     content: "";
@@ -1870,11 +1858,7 @@ html[dir=rtl] .menu-item-search-form .menu-item-search-form-button {
     box-shadow: none
 }
 
-@media (max-width:600px) {
-    .site-layout-header .landing-logo {
-        font-size: 22px
-    }
-}
+
 
 .site-layout-header__top {
     padding: 12px 0;
@@ -1912,11 +1896,7 @@ html[dir=rtl] .menu-item-search-form .menu-item-search-form-button {
     margin-left: 28px
 }
 
-@media (max-width:600px) {
-    .site-layout-header__actions .base-button--primary {
-        display: none
-    }
-}
+
 
 .site-layout-header__profile.base-button--text {
     display: flex;
@@ -2502,15 +2482,7 @@ a.pswp__share--download:hover {
     margin: 0
 }
 
-@media screen and (max-width:1024px) {
-    .pswp__preloader {
-        position: relative;
-        left: auto;
-        top: auto;
-        margin: 0;
-        float: right
-    }
-}
+
 
 @-webkit-keyframes clockwise {
     0% {
@@ -2631,3 +2603,11 @@ a.pswp__share--download:hover {
 .alignright {
 	float: right;
 }
+
+
+@media (max-width: 575.98px) {
+    .category-item.xx {
+        height: 180px;
+        width: 180px;
+    }
+ }

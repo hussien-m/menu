@@ -32,6 +32,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale(), 'middleware' => ['lo
         Route::post('settings',[SettingController::class,'store'])->name('settings.save');
         Route::get('clear-cache',[SettingController::class,'clearCache'])->name('clear.cache');
 
+        Route::get('same/meal/create/{meal_id}',[MealsController::class,'createSame'])->name('create.meal.same');
+
 
 
 

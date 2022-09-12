@@ -8,10 +8,10 @@
 
 <div class="card">
     <div class="card-body">
-        <form action="{{ route('meals.update',$meal->id) }}" method="post" enctype="multipart/form-data">
+        <form action="{{ route('meals.store')}}" method="post" enctype="multipart/form-data">
             <!-- CSRF Token -->
             @csrf
-            @method('PUT')
+            @method('post')
 
             <div class="form-group">
                 <label for="name">@lang('dashboard.meal-name')</label>
